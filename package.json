@@ -1,0 +1,30 @@
+{
+  "name": "devtools-server",
+  "version": "0.0.1",
+  "description": "Runs a simple server that allows you to connect to Chrome DevTools from dynamic hosts, not only localhost.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apifytech/devtools-server.git"
+  },
+  "keywords": [
+    "Chrome",
+    "DevTools",
+    "debugging",
+    "proxy",
+    "server"
+  ],
+  "author": {
+    "name": "Apify Technologies",
+    "email": "support@apify.com",
+    "url": "https://apify.com"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/apifytech/devtools-server/issues"
+  },
+  "homepage": "https://github.com/apifytech/devtools-server#readme"
+}
