@@ -103,16 +103,29 @@ If you want a better understanding of this library, read
 [how to run a web server](https://help.apify.com/en/articles/2157629-running-a-web-server).
 
 ```js
-const browser = await Apify.launchPuppeteer({
-    args: ['--remote-debugging-port=9222'],
+const Apify = require('apify');
+const { URL } = require('url');
+const DevToolsServer = require('devtools-server');
+
+Apify.main(async () => {
+    const browser = await Apify.launchPuppeteer({
+        args: ['--remote-debugging-port=9222'],
+    });
+
+    const containerHost = new URL(process.env.APIFY_CONTAINER_URL).host;
+    const devToolsServerPort = process.env.APIFY_CONTAINER_PORT;
+
+    const server = new DevToolsServer({ containerHost, devToolsServerPort });
+
+    await server.start();
+
+    const page = await browser.newPage();
+    await page.goto('https://example.com');
+    
+    await page.waitFor(10 * 60 * 1000);
+
+    await browser.close();
 })
-
-const server = new DevToolsServer({
-    containerHost: process.env.APIFY_CONTAINER_URL,
-    devToolsServerPort: process.env.APIFY_CONTAINER_PORT,
-});
-
-await server.start();
 ```
 
 Everything else is the same as in the [Puppeteer](#use-with-puppeteer) examples.
