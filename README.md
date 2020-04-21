@@ -100,7 +100,7 @@ to enable its users viewing and debugging their scrapers directly in the applica
 To access the containers running on the platform, one needs to utilize the APIFY_CONTAINER_URL
 and APIFY_CONTAINER_PORT [environment variables](https://docs.apify.com/actor/run#environment-variables).
 If you want a better understanding of this library, read
-[how to run a web server](https://help.apify.com/en/articles/2157629-running-a-web-server).
+[how to run a web server on Apify](https://help.apify.com/en/articles/2157629-running-a-web-server).
 
 ```js
 const Apify = require('apify');
@@ -128,7 +128,7 @@ Apify.main(async () => {
 })
 ```
 
-Everything else is the same as in the [Puppeteer](#use-with-puppeteer) examples.
+Debugging is the same as in the [Debugging](#debugging) section.
 
 ### Using with `PuppeteerCrawler`
 
