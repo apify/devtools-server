@@ -3,9 +3,24 @@
   "version": "0.0.1",
   "description": "Runs a simple server that allows you to connect to Chrome DevTools from dynamic hosts, not only localhost.",
   "main": "src/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "dependencies": {
+    "async-retry": "^1.3.1",
+    "http-proxy": "^1.18.0",
+    "http-terminator": "^2.0.3",
+    "simple-get": "^3.1.0"
   },
+  "devDependencies": {
+    "@types/puppeteer": "^2.0.1",
+    "puppeteer": "^3.0.0",
+    "@apify/eslint-config": "^0.0.3",
+    "eslint": "^6.8.0"
+  },
+  "scripts": {
+    "test": "node test/index.test.js"
+  },
+  "files": [
+    "src"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/apifytech/devtools-server.git"
