@@ -1,6 +1,6 @@
 {
   "name": "devtools-server",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Runs a simple server that allows you to connect to Chrome DevTools from dynamic hosts, not only localhost.",
   "main": "src/index.js",
   "dependencies": {
