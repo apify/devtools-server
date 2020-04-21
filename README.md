@@ -97,8 +97,8 @@ await page.evaluate(() => { debugger; });
 This library was created to be used with the [`Apify`](https://apify.com) platform
 to enable its users viewing and debugging their scrapers directly in the application UI.
 
-To access the containers running on the platform, one needs to utilize the CONTAINER_URL
-and CONTAINER_PORT [environment variables](https://docs.apify.com/actor/run#environment-variables).
+To access the containers running on the platform, one needs to utilize the APIFY_CONTAINER_URL
+and APIFY_CONTAINER_PORT [environment variables](https://docs.apify.com/actor/run#environment-variables).
 If you want a better understanding of this library, read
 [how to run a web server](https://help.apify.com/en/articles/2157629-running-a-web-server).
 
