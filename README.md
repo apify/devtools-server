@@ -108,8 +108,8 @@ const browser = await Apify.launchPuppeteer({
 })
 
 const server = new DevToolsServer({
-    containerHost: process.env.CONTAINER_URL,
-    devToolsServerPort: process.env.CONTAINER_PORT,
+    containerHost: process.env.APIFY_CONTAINER_URL,
+    devToolsServerPort: process.env.APIFY_CONTAINER_PORT,
 });
 
 await server.start();
