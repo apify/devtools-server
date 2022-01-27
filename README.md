@@ -109,7 +109,9 @@ const DevToolsServer = require('devtools-server');
 
 Apify.main(async () => {
     const browser = await Apify.launchPuppeteer({
-        args: ['--remote-debugging-port=9222'],
+        launchOptions: {
+            args: ['--remote-debugging-port=9222'],
+        }
     });
 
     const containerHost = new URL(process.env.APIFY_CONTAINER_URL).host;
