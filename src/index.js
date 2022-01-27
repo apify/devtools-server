@@ -145,7 +145,7 @@ class DevToolsServer {
 
         // http://localhost:9222/devtools/inspector.html?ws=localhost:9222/devtools/page/0BAC623431B93A0908551626AA14247D
         const correctDevtoolsUrl = devtoolsUrl.replace(`ws=localhost:${this.chromePort}`, `${this.wsProtocol}=${this.containerHost}`);
-        return `https://chrome-devtools-frontend.appspot.com/serve_file/@${hash}/${correctDevtoolsUrl}&remoteFrontend=true`;
+        return `https://${this.containerHost}/devtools/inspector.html?{correctDevtoolsUrl}&remoteFrontend=true`;
     }
 
     async fetchHashAndDevToolsUrl() {
