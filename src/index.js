@@ -141,13 +141,24 @@ class DevToolsServer {
     }
 
     async createDebuggerUrl() {
-        const [hash, devtoolsUrl] = await retry(this.fetchHashAndDevToolsUrl.bind(this), { retries: 0 });
+        const devtoolsUrl = await retry(this.fetchDevToolsUrl.bind(this), { retries: 0 });
 
         // http://localhost:9222/devtools/inspector.html?ws=localhost:9222/devtools/page/0BAC623431B93A0908551626AA14247D
         const correctDevtoolsUrl = devtoolsUrl.replace(`ws=localhost:${this.chromePort}`, `${this.wsProtocol}=${this.containerHost}`);
-        return `https://chrome-devtools-frontend.appspot.com/serve_file/@${hash}/${correctDevtoolsUrl}&remoteFrontend=true`;
+        return `https://${this.containerHost}/devtools/${correctDevtoolsUrl}&remoteFrontend=true`;
     }
 
+    async fetchDevToolsUrl() {
+        const [list, version] = await Promise.all([
+            this.fetchDevToolsInfo('list'),
+            this.fetchDevToolsInfo('version'),
+        ]);
+        const devtoolsFrontendUrl = this.findPageUrl(list);
+        if (!devtoolsFrontendUrl) throw Error('Page not ready yet.');
+        return devtoolsFrontendUrl;
+    }
+
+    
     async fetchHashAndDevToolsUrl() {
         const [list, version] = await Promise.all([
             this.fetchDevToolsInfo('list'),
