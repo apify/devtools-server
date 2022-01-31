@@ -155,7 +155,7 @@ class DevToolsServer {
         ]);
         const devtoolsFrontendUrl = this.findPageUrl(list);
         if (!devtoolsFrontendUrl) throw Error('Page not ready yet.');
-        return [devtoolsFrontendUrl];
+        return devtoolsFrontendUrl;
     }
 
     
